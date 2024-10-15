@@ -1,5 +1,5 @@
 from fastapi import FastAPI, APIRouter
-from routers import category
+from routers import category, products
 
 app = FastAPI()
 
@@ -8,6 +8,7 @@ async def weclome() -> dict:
     return {"message": "Welcome to FastAPI"}
 
 app.include_router(category.router)
+app.include_router(products.router)
 
 if __name__ == "__main__":
     import uvicorn
